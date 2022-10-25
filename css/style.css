@@ -1,17 +1,105 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 4 | @import '_cards.scss';
- *   |         ^^^^^^^^^^^^^
- *   '
- *   scss\style.scss 4:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 4 \2502  @import '_cards.scss';\d\a   \2502          ^^^^^^^^^^^^^\a   \2575 \a   scss\\style.scss 4:9  root stylesheet";
+* {
+  margin: 0%;
+  padding: 0%;
 }
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #151515;
+}
+body header img {
+  width: 100%;
+}
+body main {
+  padding: 3% 5%;
+}
+body main .seccionBusqueda {
+  margin-bottom: 10%;
+}
+body main .seccionBusqueda form {
+  display: flex;
+  justify-content: space-between;
+  margin: 2% 0%;
+}
+body main .seccionBusqueda form div {
+  display: flex;
+  margin-right: 7%;
+  font-weight: bold;
+  font-size: 13px;
+  align-items: center;
+  width: 100%;
+}
+body main .seccionBusqueda form div input {
+  font-size: 28px;
+  border: transparent;
+  border-bottom: solid black 2px;
+  padding: 2%;
+  width: 100%;
+}
+body main .seccionBusqueda form div label {
+  margin-right: 10%;
+  color: #757575;
+  letter-spacing: 1px;
+}
+body main .seccionBusqueda form div select {
+  font-size: 13px;
+  border: none;
+  font-weight: bold;
+}
+body main .seccionBusqueda form div button {
+  background-color: #151515;
+  color: white;
+  padding: 1.5%;
+  font-size: 15px;
+  border: transparent;
+  transition: 0.5s;
+}
+body main .seccionBusqueda form div button:hover {
+  background-color: #ed1d23;
+}
+body main .seccionBusqueda form div input:focus, body main .seccionBusqueda form div select:focus, body main .seccionBusqueda form div button:focus {
+  outline-color: #ed1d23;
+}
+body main .seccionBusqueda form div .contenedorSelectOrdenPersonajes {
+  display: none;
+}
+body main .seccionResultados h2 {
+  margin: 2% 0;
+}
+body main .seccionResultados p {
+  font-weight: bold;
+  color: #757575;
+  font-size: 13px;
+}
+body footer {
+  background-color: #151515;
+  color: white;
+  padding: 3%;
+  display: flex;
+  justify-content: center;
+  font-size: 17px;
+}
+body footer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+
+.contenedorPaginador {
+  display: flex;
+  justify-content: center;
+}
+.contenedorPaginador button {
+  font-size: 15px;
+  background-color: #151515;
+  color: white;
+  margin: 0 0.5%;
+  padding: 1%;
+  border: transparent;
+  transition: 0.5s;
+}
+.contenedorPaginador button:hover {
+  background-color: #ed1d23;
+}
+
+/*# sourceMappingURL=style.css.map */
