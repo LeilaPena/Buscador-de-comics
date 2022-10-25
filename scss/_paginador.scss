@@ -1,0 +1,16 @@
+.contenedorPaginador{
+    display: flex;
+    justify-content: center;
+    button{
+        font-size: $tamanioFuente13 + 2;
+        background-color: $colorNegro;
+        color: $colorBlanco;
+        margin: 0 0.5%;
+        padding: 1%;
+        border: transparent;
+        transition: 0.5s;
+    }
+    button:hover{
+        background-color: $colorRojo;
+    }
+}

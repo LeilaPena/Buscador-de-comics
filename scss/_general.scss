@@ -1,0 +1,90 @@
+* {
+    margin: 0%;
+    padding: 0%;
+  }
+body {
+    font-family: "Roboto", sans-serif;
+    color: $colorNegro;
+    header {
+      img {
+        width: 100%;
+      }
+    }
+    main {
+      padding: 3% 5%;
+      .seccionBusqueda {
+        margin-bottom: 10%;
+        form {
+          display: flex;
+          justify-content: space-between;
+          margin: 2% 0%;
+          div {
+            display: flex;
+            margin-right: 7%;
+            font-weight: bold;
+            font-size: $tamanioFuente13;
+            align-items: center;
+            width: 100%;
+            input {
+              font-size: 28px;
+              border: transparent;
+              border-bottom: solid black 2px;
+              padding: 2%;
+              width: 100%;
+            }
+            label {
+              margin-right: 10%;
+              color: $colorGris;
+              letter-spacing: 1px;
+            }
+            select {
+              font-size: $tamanioFuente13;
+              border: none;
+              font-weight: bold;
+            }
+            button {
+              background-color: $colorNegro;
+              color: $colorBlanco;
+              padding: 1.5%;
+              font-size: $tamanioFuente13 + 2;
+              border: transparent;
+              transition: 0.5s;
+            }
+            button:hover{
+              background-color: $colorRojo;
+            }
+            input:focus, select:focus, button:focus{
+              outline-color: $colorRojo;
+            }
+            .contenedorSelectOrdenPersonajes{
+              display: none;
+            }
+          }
+        }
+      }
+      .seccionResultados{
+        h2{
+          margin: 2% 0;
+        }
+        p{
+          font-weight: bold;
+          color: $colorGris;
+          font-size: $tamanioFuente13;
+        }
+      }
+    }
+    footer{
+      background-color: $colorNegro;
+      color: $colorBlanco;
+      padding: 3%;
+      display: flex;
+      justify-content: center;
+      font-size: $tamanioFuente13 + 4;
+      a{
+        text-decoration: none;
+        font-weight: bold;
+        color: $colorBlanco;
+      }
+    }
+  }
+  

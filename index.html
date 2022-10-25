@@ -1,14 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Buscador de Comics</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" href="./imagenes/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
 
+    <title>Ada comics</title>
+  </head>
+
+  <body>
+    <header>
+      <img src="./imagenes/imagen-header.jpg" />
+    </header>
+    <main>
+      <div class="seccionBusqueda">
+        <h2>Búsqueda</h2>
+        <form>
+          <div>
+            <input
+              type="text"
+              placeholder="Ingresá tu búsqueda"
+              class="inputBusqueda"
+            />
+          </div>
+          <div>
+            <div>
+              <label for="selectTipo">TIPO</label>
+              <select name="" id="selectTipo">
+                <option value="COMICS">COMICS</option>
+                <option value="PERSONAJES">PERSONAJES</option>
+              </select>
+            </div>
+
+            <div class="contenedorSelectOrdenComics">
+              <label for="selectOrdenComics">ORDEN</label
+              ><select name="" id="selectOrdenComics">
+                <option value="A-Z">A-Z</option>
+                <option value="Z-A">Z-A</option>
+                <option value="Más nuevos">Más nuevos</option>
+                <option value="Más viejos">Más viejos</option>
+              </select>
+            </div>
+            <div class="contenedorSelectOrdenPersonajes">
+              <label for="selectOrdenPersonajes">ORDEN</label
+              ><select name="" id="selectOrdenPersonajes">
+                <option value="A-Z">A-Z</option>
+                <option value="Z-A">Z-A</option>
+              </select>
+            </div>
+            <button type="submit">BUSCAR</button>
+          </div>
+        </form>
+      </div>
+      <div class="seccionResultados">
+        <h2>Resultados</h2>
+        <p><span id="spanResultadosTotales">0</span> RESULTADOS</p>
+      </div>
+      <div id="contenedorCards" class="contenedorCards"></div>
+      <div class="contenedorPaginador">
+        <button><i class="fa-solid fa-angles-left"></i></button>
+        <button><i class="fa-solid fa-angle-left"></i></button>
+        <button><i class="fa-solid fa-angle-right"></i></button>
+        <button><i class="fa-solid fa-angles-right"></i></button>
+      </div>
+    </main>
+    <footer>
+      <p>
+        Hecho con 💖 por
+        <a href="https://www.linkedin.com/in/magali-baez-319934172/">Magui</a> y
+        <a href="https://www.linkedin.com/in/leila-julieta-pena/">Lei</a>
+      </p>
+    </footer>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
