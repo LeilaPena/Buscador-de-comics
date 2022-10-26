@@ -1,4 +1,4 @@
-
+// Cards de cada comic
 
 const loadComics = async () =>{
     const comicsResponse = await fetchComics();
@@ -18,9 +18,6 @@ const loadComics = async () =>{
         comicCard.appendChild(cardTitle);
         cardTitle.appendChild(cardTitleText);
         
-
-
-
         comicCard.classList.add("comicCard");
         imgContainer.classList.add("imgContainer");
         cardImg.classList.add("cardImg");
@@ -32,4 +29,17 @@ const loadComics = async () =>{
 };
 loadComics()
 
+// Input orden
 
+const searchForm = document.getElementById('searchForm')
+
+searchForm.addEventListener('submit', e => {
+    e.preventDefault()
+    const params = new URLSearchParams(window.location.search);
+    const orderBy = e.target['selectOrderComics'].value;
+
+    params.set('orderBy', orderBy);
+    
+    window.location.href = window.location.pathname + '?' + params.toString()
+    console.log(params.toString())
+})

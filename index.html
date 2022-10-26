@@ -20,7 +20,7 @@
       rel="stylesheet"
     />
 
-    <title>Ada comics</title>
+    <title>Buscador de Comics</title>
   </head>
 
   <body>
@@ -30,7 +30,7 @@
     <main>
       <div class="seccionBusqueda">
         <h2>Búsqueda</h2>
-        <form>
+        <form id="searchForm">
           <div>
             <input
               type="text"
@@ -46,17 +46,16 @@
                 <option value="PERSONAJES">PERSONAJES</option>
               </select>
             </div>
-
-            <div class="contenedorSelectOrdenComics">
-              <label for="selectOrdenComics">ORDEN</label
-              ><select name="" id="selectOrdenComics">
-                <option value="A-Z">A-Z</option>
-                <option value="Z-A">Z-A</option>
-                <option value="Más nuevos">Más nuevos</option>
-                <option value="Más viejos">Más viejos</option>
+            <div class="contenedorOrdenComics">
+              <label for="selectOrderComics">ORDEN</label
+              ><select name="" id="selectOrderComics">
+                <option value="title">A-Z</option>
+                <option value="-title">Z-A</option>
+                <option value="-focDate">Más nuevos</option>
+                <option value="focDate">Más viejos</option>
               </select>
             </div>
-            <div class="contenedorSelectOrdenPersonajes">
+            <div class="contenedorOrdenPersonajes">
               <label for="selectOrdenPersonajes">ORDEN</label
               ><select name="" id="selectOrdenPersonajes">
                 <option value="A-Z">A-Z</option>
