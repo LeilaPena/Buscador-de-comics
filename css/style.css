@@ -60,7 +60,7 @@ body main .seccionBusqueda form div button:hover {
 body main .seccionBusqueda form div input:focus, body main .seccionBusqueda form div select:focus, body main .seccionBusqueda form div button:focus {
   outline-color: #ed1d23;
 }
-body main .seccionBusqueda form div .contenedorSelectOrdenPersonajes {
+body main .seccionBusqueda form div .contenedorOrdenPersonajes {
   display: none;
 }
 body main .seccionResultados h2 {
