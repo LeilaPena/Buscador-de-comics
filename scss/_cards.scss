@@ -1,0 +1,35 @@
+.containerCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .comicCard {
+    width: 300px;
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    .imgContainer {
+      margin-bottom: 10px;
+      .cardImg {
+        height: 100%;
+        box-shadow: -1px 11px 19px 0px rgba(0, 0, 0, 0.31);
+        transform: translateY(0);
+        transition: 0.2s;
+      }
+    }
+    .comicTitle {
+      font-size: 17px;
+      transition: 0.2s;
+    }
+  }
+  .comicCard:focus .cardImg,
+  .comicCard:hover .cardImg{
+    transform: translateY(-10px);
+  }
+  .comicCard:focus .comicTitle,
+  .comicCard:hover .comicTitle {
+    color: $colorRojo;
+  }
+}
+
+

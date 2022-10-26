@@ -102,4 +102,38 @@ body footer a {
   background-color: #ed1d23;
 }
 
+.containerCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.containerCards .comicCard {
+  width: 300px;
+  margin: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.containerCards .comicCard .imgContainer {
+  margin-bottom: 10px;
+}
+.containerCards .comicCard .imgContainer .cardImg {
+  height: 100%;
+  box-shadow: -1px 11px 19px 0px rgba(0, 0, 0, 0.31);
+  transform: translateY(0);
+  transition: 0.2s;
+}
+.containerCards .comicCard .comicTitle {
+  font-size: 17px;
+  transition: 0.2s;
+}
+.containerCards .comicCard:focus .cardImg,
+.containerCards .comicCard:hover .cardImg {
+  transform: translateY(-10px);
+}
+.containerCards .comicCard:focus .comicTitle,
+.containerCards .comicCard:hover .comicTitle {
+  color: #ed1d23;
+}
+
 /*# sourceMappingURL=style.css.map */
