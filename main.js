@@ -1,10 +1,15 @@
 // Cards de cada comic
 
 const loadComics = async () =>{
-    const comicsResponse = await fetchComics();
+    const params = new URLSearchParams(window.location.search);
+
+    const comicsResponse = await fetchComics(0, params.get('orderBy') || 'title');
     const data = comicsResponse.data;
     const comics = data.results;
+
+    console.log(params.get('orderBy'))
     const containerCards = document.getElementById('containerCards');
+
     comics.forEach(comic => {
         const comicCard = document.createElement("div");
         const cardImg = document.createElement("img");
@@ -41,5 +46,4 @@ searchForm.addEventListener('submit', e => {
     params.set('orderBy', orderBy);
     
     window.location.href = window.location.pathname + '?' + params.toString()
-    console.log(params.toString())
 })
