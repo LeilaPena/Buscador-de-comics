@@ -107,32 +107,34 @@ body footer a {
   flex-wrap: wrap;
   justify-content: center;
 }
-.containerCards .comicCard {
+.containerCards .comicCard, .containerCards .characterCard {
   width: 300px;
   margin: 10px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
 }
-.containerCards .comicCard .imgContainer {
+.containerCards .comicCard .imgContainer, .containerCards .characterCard .imgContainer {
   margin-bottom: 10px;
 }
-.containerCards .comicCard .imgContainer .cardImg {
+.containerCards .comicCard .imgContainer .cardImg, .containerCards .characterCard .imgContainer .cardImg {
   height: 100%;
   box-shadow: -1px 11px 19px 0px rgba(0, 0, 0, 0.31);
   transform: translateY(0);
   transition: 0.2s;
 }
-.containerCards .comicCard .comicTitle {
+.containerCards .comicCard .comicTitle, .containerCards .characterCard .comicTitle {
   font-size: 17px;
   transition: 0.2s;
 }
 .containerCards .comicCard:focus .cardImg,
-.containerCards .comicCard:hover .cardImg {
+.containerCards .comicCard:hover .cardImg, .containerCards .characterCard:focus .cardImg,
+.containerCards .characterCard:hover .cardImg {
   transform: translateY(-10px);
 }
 .containerCards .comicCard:focus .comicTitle,
-.containerCards .comicCard:hover .comicTitle {
+.containerCards .comicCard:hover .comicTitle, .containerCards .characterCard:focus .characterName,
+.containerCards .characterCard:hover .characterName {
   color: #ed1d23;
 }
 
