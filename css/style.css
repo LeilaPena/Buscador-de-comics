@@ -138,18 +138,18 @@ body footer a {
   color: #ed1d23;
 }
 
-.containerComicDetails {
+.containerComicDetails, .containerCharacterDetails {
   padding: 100px;
 }
-.containerComicDetails .contenedorDetalles {
+.containerComicDetails .contenedorDetalles, .containerCharacterDetails .contenedorDetalles {
   display: flex;
   justify-content: center;
 }
-.containerComicDetails .contenedorDetalles img {
+.containerComicDetails .contenedorDetalles img, .containerCharacterDetails .contenedorDetalles img {
   max-width: 350px;
   margin: 0 30px 30px;
 }
-.containerComicDetails .contenedorDetalles h3 {
+.containerComicDetails .contenedorDetalles h3, .containerComicDetails .contenedorDetalles p, .containerCharacterDetails .contenedorDetalles h3, .containerCharacterDetails .contenedorDetalles p {
   margin: 25px 0;
 }
 

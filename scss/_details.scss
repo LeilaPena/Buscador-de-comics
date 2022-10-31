@@ -1,4 +1,4 @@
-.containerComicDetails{
+.containerComicDetails, .containerCharacterDetails{
     padding: 100px;
     .contenedorDetalles{
       display: flex;
@@ -7,8 +7,9 @@
         max-width: 350px;
         margin: 0 30px 30px;
       }
-      h3{
+      h3, p{
         margin: 25px 0;
       }
     }
   }
+  

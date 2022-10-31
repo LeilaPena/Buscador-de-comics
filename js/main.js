@@ -75,6 +75,12 @@ const loadCharacters = async () =>{
         characterName.classList.add("characterName");
 
         characterImg.setAttribute('src', `${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`);
+
+        characterCard.addEventListener('click', () =>{
+            params.set('characterId', character.id);
+            
+            window.location.href = window.location.pathname + '/../views/characterDetails.html?' + params.toString(); 
+        })
     })
 }
 
