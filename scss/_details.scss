@@ -1,0 +1,14 @@
+.containerComicDetails{
+    padding: 100px;
+    .contenedorDetalles{
+      display: flex;
+      justify-content: center;
+      img{
+        max-width: 350px;
+        margin: 0 30px 30px;
+      }
+      h3{
+        margin: 25px 0;
+      }
+    }
+  }

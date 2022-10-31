@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="/../css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -12,7 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="icon" href="./imagenes/favicon.png" />
+    <link rel="icon" href="/../imagenes/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,10 +24,14 @@
   </head>
 
   <body>
+    <!--------------------------------------- HEADER --------------------------------------------------->
+
     <header>
-      <img src="./imagenes/imagen-header.jpg" />
+      <img src="/../imagenes/imagen-header.jpg" />
     </header>
     <main>
+      <!------------------------------------- BUSQUEDA -------------------------------------------------->
+
       <div class="seccionBusqueda">
         <h2>Búsqueda</h2>
         <form id="searchForm">
@@ -66,18 +70,27 @@
           </div>
         </form>
       </div>
-      <div class="seccionResultados">
-        <h2>Resultados</h2>
-        <p><span id="spanResultadosTotales">0</span> RESULTADOS</p>
-      </div>
+
+      <!------------------------------------- CARDS -------------------------------------------------->
+
       <div id="containerCards" class="containerCards"></div>
-      <div class="contenedorPaginador">
+
+      <!------------------------------------- DETALLES COMIC -------------------------------------------------->
+      
+      <div id="containerComicDetails" class="containerComicDetails"></div>
+
+      <!------------------------------------- PAGINADOR -------------------------------------------------->
+
+      <div class="contenedorPaginador" id="contenedorPaginador">
         <button><i class="fa-solid fa-angles-left"></i></button>
         <button><i class="fa-solid fa-angle-left"></i></button>
         <button><i class="fa-solid fa-angle-right"></i></button>
         <button><i class="fa-solid fa-angles-right"></i></button>
       </div>
     </main>
+
+    <!------------------------------------- FOOTER -------------------------------------------------->
+
     <footer>
       <p>
         Hecho con 💖 por
@@ -85,7 +98,7 @@
         <a href="https://www.linkedin.com/in/leila-julieta-pena/">Lei</a>
       </p>
     </footer>
-    <script src="fetchs/fetchComics.js"></script>
-    <script src="main.js"></script>
+    <script src="/../fetchs/fetchComics.js"></script>
+    <script src="/../js/main.js"></script>
   </body>
 </html>
