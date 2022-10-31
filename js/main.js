@@ -3,7 +3,9 @@ const containerCards = document.getElementById('containerCards');
 const containerComicDetails = document.getElementById('containerComicDetails');
 const searchForm = document.getElementById('searchForm');
 const contenedorPaginador = document.getElementById('contenedorPaginador');
-
+const contenedorOrdenPersonajes = document.getElementById('contenedorOrdenPersonajes');
+const contenedorOrdenComics = document.getElementById('contenedorOrdenComics');
+const selectTipo = document.getElementById('selectTipo');
 
 // Cards de cada comic
 
@@ -49,7 +51,8 @@ const loadComics = async () =>{
 // Cards de cada comic
 
 const loadCharacters = async () =>{
-    const characterResponse = await fetchCharacters(0, 'name');
+    const params = new URLSearchParams(window.location.search);
+    const characterResponse = await fetchCharacters(0, params.get('orderBy') || 'name');
     const data = characterResponse.data
     const characters = data.results
 
@@ -77,19 +80,48 @@ const loadCharacters = async () =>{
 
 // Input orden
 
+selectTipo.addEventListener('input', () =>{
+    if (selectTipo.value === 'personajes'){
+        contenedorOrdenComics.style.display= 'none';
+        contenedorOrdenPersonajes.style.display='flex';
+    }
+    else{
+        contenedorOrdenComics.style.display= 'flex';
+        contenedorOrdenPersonajes.style.display='none';
+    }
+})
+
 searchForm.addEventListener('submit', e => {
     e.preventDefault()
     const params = new URLSearchParams(window.location.search);
-    const orderBy = e.target['selectOrderComics'].value;
+    const orderBy = () =>{
+        if (contenedorOrdenComics.style.display !== 'none'){
+            return e.target['selectOrderComics'].value;
+        }
+        else{
+            return e.target['selectOrdenPersonajes'].value;
+        }
+    }    
+    const orderType = selectTipo.value;
 
-    params.set('orderBy', orderBy);
+    params.set('orderBy', orderBy());
+    params.set('orderType', orderType);
     
     window.location.href = window.location.pathname + '?' + params.toString()
 })
 
+const search = () =>{
+    const params = new URLSearchParams(window.location.search)
+    if (params.get('orderType')=== 'personajes'){
+        loadCharacters()
+    }
+    else{
+        loadComics()
+    }
+}
+
 const initialize = () => {
-    // loadComics();
-    loadCharacters();
+    search()    
    };
 window.onload = initialize;
    
