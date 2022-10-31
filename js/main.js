@@ -20,7 +20,7 @@ const loadComics = async () =>{
         const cardImg = document.createElement("img");
         const imgContainer = document.createElement("div");
         const cardTitle = document.createElement("h3");
-        const cardTitleText= document.createTextNode(comic.title)
+        const cardTitleText= document.createTextNode(comic.title);
 
         comicCard.appendChild(imgContainer);
         containerCards.appendChild(comicCard);
@@ -31,7 +31,7 @@ const loadComics = async () =>{
         comicCard.classList.add("comicCard");
         imgContainer.classList.add("imgContainer");
         cardImg.classList.add("cardImg");
-        cardTitle.classList.add("comicTitle")
+        cardTitle.classList.add("comicTitle");
 
         cardImg.setAttribute("src" , `${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`)
 
@@ -46,6 +46,35 @@ const loadComics = async () =>{
 
 };
 
+// Cards de cada comic
+
+const loadCharacters = async () =>{
+    const characterResponse = await fetchCharacters(0, 'name');
+    const data = characterResponse.data
+    const characters = data.results
+
+    characters.forEach(character =>{
+        const characterCard = document.createElement("div");
+        const characterImg = document.createElement("img");
+        const imgContainer = document.createElement("div");
+        const characterName = document.createElement("h3");
+        const characterNameText = document.createTextNode(character.name);
+
+        containerCards.appendChild(characterCard);
+        characterCard.appendChild(imgContainer);
+        characterCard.appendChild(characterName);
+        imgContainer.appendChild(characterImg);
+        characterName.appendChild(characterNameText);
+
+        characterCard.classList.add("characterCard");
+        imgContainer.classList.add("imgContainer");
+        characterImg.classList.add("cardImg");
+        characterName.classList.add("characterName");
+
+        characterImg.setAttribute('src', `${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`);
+    })
+}
+
 // Input orden
 
 searchForm.addEventListener('submit', e => {
@@ -59,7 +88,8 @@ searchForm.addEventListener('submit', e => {
 })
 
 const initialize = () => {
-    loadComics();
+    // loadComics();
+    loadCharacters();
    };
 window.onload = initialize;
    

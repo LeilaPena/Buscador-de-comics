@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  .comicCard {
+  .comicCard, .characterCard {
     width: 300px;
     margin: 10px;
     cursor: pointer;
@@ -23,11 +23,13 @@
     }
   }
   .comicCard:focus .cardImg,
-  .comicCard:hover .cardImg{
+  .comicCard:hover .cardImg, .characterCard:focus .cardImg,
+  .characterCard:hover .cardImg{
     transform: translateY(-10px);
   }
   .comicCard:focus .comicTitle,
-  .comicCard:hover .comicTitle {
+  .comicCard:hover .comicTitle, .characterCard:focus .characterName,
+  .characterCard:hover .characterName {
     color: $colorRojo;
   }
 }
