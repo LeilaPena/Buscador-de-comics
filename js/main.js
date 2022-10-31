@@ -1,3 +1,10 @@
+// Elementos de HTML
+const containerCards = document.getElementById('containerCards');
+const containerComicDetails = document.getElementById('containerComicDetails');
+const searchForm = document.getElementById('searchForm');
+const contenedorPaginador = document.getElementById('contenedorPaginador');
+
+
 // Cards de cada comic
 
 const loadComics = async () =>{
@@ -7,8 +14,6 @@ const loadComics = async () =>{
     const data = comicsResponse.data;
     const comics = data.results;
 
-    console.log(params.get('orderBy'))
-    const containerCards = document.getElementById('containerCards');
 
     comics.forEach(comic => {
         const comicCard = document.createElement("div");
@@ -29,14 +34,19 @@ const loadComics = async () =>{
         cardTitle.classList.add("comicTitle")
 
         cardImg.setAttribute("src" , `${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`)
+
+
+        comicCard.addEventListener('click', () =>{
+            params.set('comicId', comic.id);
+
+            window.location.href = window.location.pathname + '/../details.html?' + params.toString(); 
+
+        });
     });
 
 };
-loadComics()
 
 // Input orden
-
-const searchForm = document.getElementById('searchForm')
 
 searchForm.addEventListener('submit', e => {
     e.preventDefault()
@@ -47,3 +57,9 @@ searchForm.addEventListener('submit', e => {
     
     window.location.href = window.location.pathname + '?' + params.toString()
 })
+
+const initialize = () => {
+    loadComics();
+   };
+window.onload = initialize;
+   

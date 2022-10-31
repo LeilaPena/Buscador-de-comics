@@ -136,4 +136,19 @@ body footer a {
   color: #ed1d23;
 }
 
+.containerComicDetails {
+  padding: 100px;
+}
+.containerComicDetails .contenedorDetalles {
+  display: flex;
+  justify-content: center;
+}
+.containerComicDetails .contenedorDetalles img {
+  max-width: 350px;
+  margin: 0 30px 30px;
+}
+.containerComicDetails .contenedorDetalles h3 {
+  margin: 25px 0;
+}
+
 /*# sourceMappingURL=style.css.map */
