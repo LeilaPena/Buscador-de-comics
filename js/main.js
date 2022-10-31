@@ -39,7 +39,7 @@ const loadComics = async () =>{
         comicCard.addEventListener('click', () =>{
             params.set('comicId', comic.id);
 
-            window.location.href = window.location.pathname + '/../details.html?' + params.toString(); 
+            window.location.href = window.location.pathname + '/../views/details.html?' + params.toString(); 
 
         });
     });
