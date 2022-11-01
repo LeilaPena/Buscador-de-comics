@@ -101,6 +101,12 @@ body footer a {
 .contenedorPaginador button:hover {
   background-color: #ed1d23;
 }
+.contenedorPaginador .disabled {
+  background-color: gray;
+}
+.contenedorPaginador .disabled:hover {
+  background-color: gray;
+}
 
 .containerCards {
   display: flex;

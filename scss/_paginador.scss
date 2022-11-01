@@ -13,4 +13,10 @@
     button:hover{
         background-color: $colorRojo;
     }
+    .disabled{
+        background-color: gray;
+    }
+    .disabled:hover{
+        background-color: gray;
+    }
 }

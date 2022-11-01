@@ -6,13 +6,22 @@ const contenedorPaginador = document.getElementById('contenedorPaginador');
 const contenedorOrdenPersonajes = document.getElementById('contenedorOrdenPersonajes');
 const contenedorOrdenComics = document.getElementById('contenedorOrdenComics');
 const selectTipo = document.getElementById('selectTipo');
+const firstPage = document.getElementById('firstPage');
+const previousPage = document.getElementById('previousPage');
+const nextPage = document.getElementById('nextPage');
+const lastPage = document.getElementById('lastPage');
+
+
 
 // Cards de cada comic
 
+
 const loadComics = async () =>{
     const params = new URLSearchParams(window.location.search);
+    const offset =  parseInt(params.get('offset')) || 0;
+    const orderBy = params.get("orderBy") || 'title';
 
-    const comicsResponse = await fetchComics(0, params.get('orderBy') || 'title');
+    const comicsResponse = await fetchComics(offset, orderBy);
     const data = comicsResponse.data;
     const comics = data.results;
 
@@ -45,6 +54,8 @@ const loadComics = async () =>{
 
         });
     });
+    updatePagination(data.total - 20);
+    updateDisabledButtons(offset, data.total - 20);
 
 };
 
@@ -52,7 +63,10 @@ const loadComics = async () =>{
 
 const loadCharacters = async () =>{
     const params = new URLSearchParams(window.location.search);
-    const characterResponse = await fetchCharacters(0, params.get('orderBy') || 'name');
+    const offset = parseInt(params.get('offset')) || 0;
+    const orderBy = params.get("orderBy") || 'name';
+
+    const characterResponse = await fetchCharacters(offset, orderBy);
     const data = characterResponse.data
     const characters = data.results
 
@@ -82,6 +96,8 @@ const loadCharacters = async () =>{
             window.location.href = window.location.pathname + '/../views/characterDetails.html?' + params.toString(); 
         })
     })
+    updatePagination(data.total - 20);
+    updateDisabledButtons(offset, data.total - 20);
 }
 
 // Input orden
@@ -111,8 +127,10 @@ searchForm.addEventListener('submit', e => {
     const orderType = selectTipo.value;
 
     params.set('orderBy', orderBy());
-    params.set('orderType', orderType);
-    
+    params.set('orderType', orderType);  
+    params.set('offset', 0);  
+
+
     window.location.href = window.location.pathname + '?' + params.toString()
 })
 
@@ -125,6 +143,57 @@ const search = () =>{
         loadComics()
     }
 }
+
+// Paginador
+
+
+const updatePagination = (totalPages) =>{
+    const params = new URLSearchParams(window.location.search);
+    const offset = parseInt(params.get('offset') || 0);
+    firstPage.addEventListener('click', () =>{
+        params.set('offset', 0)
+        window.location.href = window.location.pathname + '?' + params.toString()
+    })
+    previousPage.addEventListener('click', () =>{
+        params.set('offset', offset - 20)
+        window.location.href = window.location.pathname + '?' + params.toString()
+    })
+    nextPage.addEventListener('click', () =>{
+        params.set('offset', offset + 20)
+        window.location.href = window.location.pathname + '?' + params.toString()
+    })
+    lastPage.addEventListener('click', () =>{
+        params.set('offset', totalPages)
+        window.location.href = window.location.pathname + '?' + params.toString()
+    })
+}
+const updateDisabledButtons = (offset, total) =>{
+    if (offset === 0){
+        firstPage.disabled = true;
+        previousPage.disabled = true;
+        firstPage.classList.add('disabled');
+        previousPage.classList.add('disabled');
+    }
+    else{
+        firstPage.disabled = false;
+        previousPage.disabled = false;
+        firstPage.classList.remove('disabled');
+        previousPage.classList.remove('disabled');
+    }
+    if (offset >= total){
+        lastPage.disabled = true;
+        nextPage.disabled = true;
+        lastPage.classList.add('disabled');
+        nextPage.classList.add('disabled');
+    }
+    else{
+        lastPage.disabled = false;
+        nextPage.disabled = false;
+        lastPage.classList.remove('disabled');
+        nextPage.classList.remove('disabled');
+    }
+};
+
 
 const initialize = () => {
     search()    
