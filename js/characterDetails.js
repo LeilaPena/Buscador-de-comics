@@ -8,8 +8,6 @@ const loadCharacter = async () => {
     const data = await response.json()
     const character = data.data.results[0];
 
-    console.log(character)
-
     const contenedorDetalles = document.createElement('div')
     const characterImg = document.createElement('img');
     const containerText = document.createElement('div');

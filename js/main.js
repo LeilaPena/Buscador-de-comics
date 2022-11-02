@@ -9,10 +9,13 @@ const selectTipo = document.getElementById('selectTipo');
 
 // Cards de cada comic
 
+
 const loadComics = async () =>{
     const params = new URLSearchParams(window.location.search);
+    const page =  parseInt(params.get('page'))|| 1;
+    const orderBy = params.get("orderBy") || 'title';
 
-    const comicsResponse = await fetchComics(0, params.get('orderBy') || 'title');
+    const comicsResponse = await fetchComics((page - 1)*20, orderBy);
     const data = comicsResponse.data;
     const comics = data.results;
 
@@ -45,14 +48,17 @@ const loadComics = async () =>{
 
         });
     });
-
+    containerPagination(Math.ceil(data.total/20));
 };
 
 // Cards de cada comic
 
 const loadCharacters = async () =>{
     const params = new URLSearchParams(window.location.search);
-    const characterResponse = await fetchCharacters(0, params.get('orderBy') || 'name');
+    const page = parseInt(params.get('page')) || 0;
+    const orderBy = params.get("orderBy") || 'name';
+
+    const characterResponse = await fetchCharacters((page - 1)*20, orderBy);
     const data = characterResponse.data
     const characters = data.results
 
@@ -82,6 +88,7 @@ const loadCharacters = async () =>{
             window.location.href = window.location.pathname + '/../views/characterDetails.html?' + params.toString(); 
         })
     })
+    containerPagination(Math.ceil(data.total/20));
 }
 
 // Input orden
@@ -111,8 +118,10 @@ searchForm.addEventListener('submit', e => {
     const orderType = selectTipo.value;
 
     params.set('orderBy', orderBy());
-    params.set('orderType', orderType);
-    
+    params.set('orderType', orderType);  
+    params.set('page', 1);  
+
+
     window.location.href = window.location.pathname + '?' + params.toString()
 })
 
