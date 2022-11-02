@@ -107,6 +107,9 @@ body footer a {
 .contenedorPaginador .disabled:hover {
   background-color: gray;
 }
+.contenedorPaginador #actualPage {
+  background-color: #151515;
+}
 
 .containerCards {
   display: flex;

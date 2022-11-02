@@ -6,11 +6,6 @@ const contenedorPaginador = document.getElementById('contenedorPaginador');
 const contenedorOrdenPersonajes = document.getElementById('contenedorOrdenPersonajes');
 const contenedorOrdenComics = document.getElementById('contenedorOrdenComics');
 const selectTipo = document.getElementById('selectTipo');
-const buttonFirstPage = document.getElementById('buttonFirstPage');
-const buttonPreviousPage = document.getElementById('buttonPreviousPage');
-const buttonNextPage = document.getElementById('buttonNextPage');
-const buttonLastPage = document.getElementById('buttonLastPage');
-const buttonActualPage = document.getElementById('buttonActualPage');
 
 // Cards de cada comic
 
@@ -53,7 +48,7 @@ const loadComics = async () =>{
 
         });
     });
-    containerPagination(Math.ceil(data.total/20))
+    containerPagination(Math.ceil(data.total/20));
 };
 
 // Cards de cada comic
@@ -93,7 +88,7 @@ const loadCharacters = async () =>{
             window.location.href = window.location.pathname + '/../views/characterDetails.html?' + params.toString(); 
         })
     })
-    containerPagination(Math.ceil(data.total/20))
+    containerPagination(Math.ceil(data.total/20));
 }
 
 // Input orden
@@ -139,116 +134,6 @@ const search = () =>{
         loadComics()
     }
 }
-
-// Paginador
-
-const containerPagination = (totalPages) => {
-    const params = new URLSearchParams(window.location.search);
-    const page = parseInt(params.get('page',) || 1);
-
-    const buttons = [
-        {
-            text: `<i class="fa-solid fa-angles-left"></i>`,
-            onClick: () => {
-                params.set('page', 1);
-                window.location.href = `${window.location.pathname}?${params.toString()}`;
-            }
-        },
-        {
-            text: `<i class="fa-solid fa-angle-left"></i>`,
-            onClick: () => {
-                params.set('page', page - 1);
-                window.location.href = `${window.location.pathname}?${params.toString()}`;
-            }
-        },
-        {
-            text: page,
-            class: 'btn'
-        },
-        {
-            text: `<i class="fa-solid fa-angle-right"></i>`,
-            onClick: () => {
-                params.set('page', page + 1);
-                window.location.href = `${window.location.pathname}?${params.toString()}`;
-            }
-        },
-        {
-            text: `<i class="fa-solid fa-angles-right"></i>`,
-            onClick: () => {
-                params.set('page', totalPages);
-                window.location.href = `${window.location.pathname}?${params.toString()}`;
-            }
-        },
-
-    ]
-    const pagination = document.createElement('div');
-    pagination.classList.add('contenedorPaginador');
-
-    buttons.forEach(button =>{
-        const buttonNode = document.createElement('button');
-        buttonNode.innerHTML = button.text;
-        buttonNode.addEventListener('click', button.onClick)
-        pagination.appendChild(buttonNode)
-    })
-    contenedorPaginador.appendChild(pagination)
-}
-
-// const updatePagination = (totalPages) =>{
-//     const params = new URLSearchParams(window.location.search);
-//     const offset = parseInt(params.get('offset') || 0);
-//     buttonFirstPage.addEventListener('click', () =>{
-//         params.set('offset', 0)
-//         buttonActualPage.innerHTML = (params.get('offset'))/20;
-//         window.location.href = window.location.pathname + '?' + params.toString()
-//     })
-//     buttonPreviousPage.addEventListener('click', () =>{
-//         params.set('offset', offset - 20)
-//         buttonActualPage.appendChild((params.get('offset'))/20);
-//         window.location.href = window.location.pathname + '?' + params.toString()
-//     })
-//     buttonNextPage.addEventListener('click', () =>{
-//         params.set('offset', offset + 20)
-//         // actualPage += (params.get('offset'))/20;
-//         window.location.href = window.location.pathname + '?' + params.toString()
-//     })
-//     buttonLastPage.addEventListener('click', () =>{
-//         params.set('offset', totalPages)
-//         // actualPage = Math.ceil(totalPages/20);
-//         window.location.href = window.location.pathname + '?' + params.toString()
-//     })
-// }
-
-// const probando = () =>{
-//     buttonActualPage.innerHTML= actualPage;
-// }
-
-// const updateDisabledButtons = (offset, total) =>{
-//     if (offset === 0){
-//         buttonFirstPage.disabled = true;
-//         buttonPreviousPage.disabled = true;
-//         buttonFirstPage.classList.add('disabled');
-//         buttonPreviousPage.classList.add('disabled');
-//     }
-//     else{
-//         buttonFirstPage.disabled = false;
-//         buttonPreviousPage.disabled = false;
-//         buttonFirstPage.classList.remove('disabled');
-//         buttonPreviousPage.classList.remove('disabled');
-//     }
-//     if (offset >= total){
-//         buttonLastPage.disabled = true;
-//         buttonNextPage.disabled = true;
-//         buttonLastPage.classList.add('disabled');
-//         buttonNextPage.classList.add('disabled');
-//     }
-//     else{
-//         buttonLastPage.disabled = false;
-//         buttonNextPage.disabled = false;
-//         buttonLastPage.classList.remove('disabled');
-//         buttonNextPage.classList.remove('disabled');
-//     }
-// };
-
 
 const initialize = () => {
     search()    
