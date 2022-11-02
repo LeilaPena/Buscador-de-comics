@@ -14,11 +14,11 @@ const loadComics = async () =>{
     const params = new URLSearchParams(window.location.search);
     const page =  parseInt(params.get('page'))|| 1;
     const orderBy = params.get("orderBy") || 'title';
+    const query = params.get('query');
 
-    const comicsResponse = await fetchComics((page - 1)*20, orderBy);
+    const comicsResponse = await fetchComics(page, orderBy, query);
     const data = comicsResponse.data;
     const comics = data.results;
-
 
     comics.forEach(comic => {
         const comicCard = document.createElement("div");
@@ -57,8 +57,9 @@ const loadCharacters = async () =>{
     const params = new URLSearchParams(window.location.search);
     const page = parseInt(params.get('page')) || 0;
     const orderBy = params.get("orderBy") || 'name';
+    const query = params.get('query');
 
-    const characterResponse = await fetchCharacters((page - 1)*20, orderBy);
+    const characterResponse = await fetchCharacters(page, orderBy,query);
     const data = characterResponse.data
     const characters = data.results
 
@@ -116,10 +117,12 @@ searchForm.addEventListener('submit', e => {
         }
     }    
     const orderType = selectTipo.value;
+    const query = e.target['searchInput'].value;
 
     params.set('orderBy', orderBy());
     params.set('orderType', orderType);  
     params.set('page', 1);  
+    params.set('query', query)
 
 
     window.location.href = window.location.pathname + '?' + params.toString()
