@@ -1,15 +1,57 @@
-.containerComicDetails, .containerCharacterDetails{
-    padding: 100px;
-    .contenedorDetalles{
-      display: flex;
-      justify-content: center;
-      img{
-        max-width: 350px;
-        margin: 0 30px 30px;
-      }
-      h3, p{
-        margin: 25px 0;
-      }
+.containerComicDetails,
+.containerCharacterDetails {
+  padding: 100px;
+  .contenedorDetalles {
+    display: flex;
+    justify-content: flex-start;
+    img {
+      max-width: 350px;
+      margin: 0 30px 30px 0;
+    }
+    h3,
+    p {
+      margin: 25px 0;
     }
   }
-  
+  .containerCharacters {
+    display: flex;
+    flex-wrap: wrap;
+    .characterCard{
+      display: flex;
+      flex-direction: column;
+      width: 160px;
+      height: 330px;
+      margin: 10px;
+      color: $colorBlanco;
+      cursor: pointer;
+      .imgContainer{
+        border-bottom: 4px solid $colorRojo;
+        overflow: hidden;
+        margin-bottom: 0px;
+        .cardImg{
+          height: 100%;
+          transition: 0.2s;
+        }
+      }
+      .nameContainer{
+        padding: 18px 22px;
+        background-color: $colorNegro;
+        transition: 0.2s;
+        margin-top: 0px;
+        .characterName{
+          height: 45px;
+          font-size: 14px;
+        }
+      }
+    }
+    .characterCard:focus .nameContainer, .characterCard:hover .nameContainer{
+      background-color: $colorRojo;
+    }
+    .characterCard:focus .cardImg, .characterCard:hover .cardImg{
+      transform: scale(1.1);
+    }
+    .characterCard:focus{
+      outline: 0;
+    }
+  }
+}

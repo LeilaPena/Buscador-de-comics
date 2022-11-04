@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  .comicCard, .characterCard {
+  .comicCard{
     width: 300px;
     margin: 10px;
     cursor: pointer;
@@ -17,20 +17,54 @@
         transition: 0.2s;
       }
     }
-    .comicTitle {
+    .comicTitle,.characterName  {
       font-size: 17px;
       transition: 0.2s;
     }
   }
   .comicCard:focus .cardImg,
-  .comicCard:hover .cardImg, .characterCard:focus .cardImg,
-  .characterCard:hover .cardImg{
+  .comicCard:hover .cardImg{
     transform: translateY(-10px);
   }
   .comicCard:focus .comicTitle,
-  .comicCard:hover .comicTitle, .characterCard:focus .characterName,
-  .characterCard:hover .characterName {
+  .comicCard:hover .comicTitle{
     color: $colorRojo;
+  }
+  .characterCard{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin: 10px;
+    color: $colorBlanco;
+    cursor: pointer;
+    .imgContainer{
+      border-bottom: 4px solid $colorRojo;
+      overflow: hidden;
+      margin-bottom: 0px;
+      .cardImg{
+        height: 100%;
+        transition: 0.2s;
+      }
+    }
+    .nameContainer{
+      padding: 18px 22px;
+      background-color: $colorNegro;
+      transition: 0.2s;
+      margin-top: 0px;
+      .characterName{
+        height: 79px;
+        font-size: 17px;
+      }
+    }
+  }
+  .characterCard:focus .nameContainer, .characterCard:hover .nameContainer{
+    background-color: $colorRojo;
+  }
+  .characterCard:focus .cardImg, .characterCard:hover .cardImg{
+    transform: scale(1.1);
+  }
+  .characterCard:focus{
+    outline: 0;
   }
 }
 

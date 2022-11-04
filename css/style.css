@@ -116,50 +116,142 @@ body footer a {
   flex-wrap: wrap;
   justify-content: center;
 }
-.containerCards .comicCard, .containerCards .characterCard {
+.containerCards .comicCard {
   width: 300px;
   margin: 10px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
 }
-.containerCards .comicCard .imgContainer, .containerCards .characterCard .imgContainer {
+.containerCards .comicCard .imgContainer {
   margin-bottom: 10px;
 }
-.containerCards .comicCard .imgContainer .cardImg, .containerCards .characterCard .imgContainer .cardImg {
+.containerCards .comicCard .imgContainer .cardImg {
   height: 100%;
   box-shadow: -1px 11px 19px 0px rgba(0, 0, 0, 0.31);
   transform: translateY(0);
   transition: 0.2s;
 }
-.containerCards .comicCard .comicTitle, .containerCards .characterCard .comicTitle {
+.containerCards .comicCard .comicTitle, .containerCards .comicCard .characterName {
   font-size: 17px;
   transition: 0.2s;
 }
 .containerCards .comicCard:focus .cardImg,
-.containerCards .comicCard:hover .cardImg, .containerCards .characterCard:focus .cardImg,
-.containerCards .characterCard:hover .cardImg {
+.containerCards .comicCard:hover .cardImg {
   transform: translateY(-10px);
 }
 .containerCards .comicCard:focus .comicTitle,
-.containerCards .comicCard:hover .comicTitle, .containerCards .characterCard:focus .characterName,
-.containerCards .characterCard:hover .characterName {
+.containerCards .comicCard:hover .comicTitle {
   color: #ed1d23;
 }
+.containerCards .characterCard {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin: 10px;
+  color: white;
+  cursor: pointer;
+}
+.containerCards .characterCard .imgContainer {
+  border-bottom: 4px solid #ed1d23;
+  overflow: hidden;
+  margin-bottom: 0px;
+}
+.containerCards .characterCard .imgContainer .cardImg {
+  height: 100%;
+  transition: 0.2s;
+}
+.containerCards .characterCard .nameContainer {
+  padding: 18px 22px;
+  background-color: #151515;
+  transition: 0.2s;
+  margin-top: 0px;
+}
+.containerCards .characterCard .nameContainer .characterName {
+  height: 79px;
+  font-size: 17px;
+}
+.containerCards .characterCard:focus .nameContainer, .containerCards .characterCard:hover .nameContainer {
+  background-color: #ed1d23;
+}
+.containerCards .characterCard:focus .cardImg, .containerCards .characterCard:hover .cardImg {
+  transform: scale(1.1);
+}
+.containerCards .characterCard:focus {
+  outline: 0;
+}
 
-.containerComicDetails, .containerCharacterDetails {
+.containerComicDetails,
+.containerCharacterDetails {
   padding: 100px;
 }
-.containerComicDetails .contenedorDetalles, .containerCharacterDetails .contenedorDetalles {
+.containerComicDetails .contenedorDetalles,
+.containerCharacterDetails .contenedorDetalles {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
-.containerComicDetails .contenedorDetalles img, .containerCharacterDetails .contenedorDetalles img {
+.containerComicDetails .contenedorDetalles img,
+.containerCharacterDetails .contenedorDetalles img {
   max-width: 350px;
-  margin: 0 30px 30px;
+  margin: 0 30px 30px 0;
 }
-.containerComicDetails .contenedorDetalles h3, .containerComicDetails .contenedorDetalles p, .containerCharacterDetails .contenedorDetalles h3, .containerCharacterDetails .contenedorDetalles p {
+.containerComicDetails .contenedorDetalles h3,
+.containerComicDetails .contenedorDetalles p,
+.containerCharacterDetails .contenedorDetalles h3,
+.containerCharacterDetails .contenedorDetalles p {
   margin: 25px 0;
+}
+.containerComicDetails .containerCharacters,
+.containerCharacterDetails .containerCharacters {
+  display: flex;
+  flex-wrap: wrap;
+}
+.containerComicDetails .containerCharacters .characterCard,
+.containerCharacterDetails .containerCharacters .characterCard {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  height: 330px;
+  margin: 10px;
+  color: white;
+  cursor: pointer;
+}
+.containerComicDetails .containerCharacters .characterCard .imgContainer,
+.containerCharacterDetails .containerCharacters .characterCard .imgContainer {
+  border-bottom: 4px solid #ed1d23;
+  overflow: hidden;
+  margin-bottom: 0px;
+}
+.containerComicDetails .containerCharacters .characterCard .imgContainer .cardImg,
+.containerCharacterDetails .containerCharacters .characterCard .imgContainer .cardImg {
+  height: 100%;
+  transition: 0.2s;
+}
+.containerComicDetails .containerCharacters .characterCard .nameContainer,
+.containerCharacterDetails .containerCharacters .characterCard .nameContainer {
+  padding: 18px 22px;
+  background-color: #151515;
+  transition: 0.2s;
+  margin-top: 0px;
+}
+.containerComicDetails .containerCharacters .characterCard .nameContainer .characterName,
+.containerCharacterDetails .containerCharacters .characterCard .nameContainer .characterName {
+  height: 45px;
+  font-size: 14px;
+}
+.containerComicDetails .containerCharacters .characterCard:focus .nameContainer, .containerComicDetails .containerCharacters .characterCard:hover .nameContainer,
+.containerCharacterDetails .containerCharacters .characterCard:focus .nameContainer,
+.containerCharacterDetails .containerCharacters .characterCard:hover .nameContainer {
+  background-color: #ed1d23;
+}
+.containerComicDetails .containerCharacters .characterCard:focus .cardImg, .containerComicDetails .containerCharacters .characterCard:hover .cardImg,
+.containerCharacterDetails .containerCharacters .characterCard:focus .cardImg,
+.containerCharacterDetails .containerCharacters .characterCard:hover .cardImg {
+  transform: scale(1.1);
+}
+.containerComicDetails .containerCharacters .characterCard:focus,
+.containerCharacterDetails .containerCharacters .characterCard:focus {
+  outline: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

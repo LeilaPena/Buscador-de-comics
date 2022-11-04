@@ -67,12 +67,14 @@ const loadCharacters = async () =>{
         const characterCard = document.createElement("div");
         const characterImg = document.createElement("img");
         const imgContainer = document.createElement("div");
+        const nameContainer =  document.createElement('div')
         const characterName = document.createElement("h3");
         const characterNameText = document.createTextNode(character.name);
 
         containerCards.appendChild(characterCard);
         characterCard.appendChild(imgContainer);
-        characterCard.appendChild(characterName);
+        characterCard.appendChild(nameContainer);
+        nameContainer.appendChild(characterName)
         imgContainer.appendChild(characterImg);
         characterName.appendChild(characterNameText);
 
@@ -80,6 +82,7 @@ const loadCharacters = async () =>{
         imgContainer.classList.add("imgContainer");
         characterImg.classList.add("cardImg");
         characterName.classList.add("characterName");
+        nameContainer.classList.add('nameContainer');
 
         characterImg.setAttribute('src', `${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`);
 
