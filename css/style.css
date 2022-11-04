@@ -253,5 +253,48 @@ body footer a {
 .containerCharacterDetails .containerCharacters .characterCard:focus {
   outline: 0;
 }
+.containerComicDetails .containerComics,
+.containerCharacterDetails .containerComics {
+  display: flex;
+  flex-wrap: wrap;
+}
+.containerComicDetails .containerComics .comicCard,
+.containerCharacterDetails .containerComics .comicCard {
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.containerComicDetails .containerComics .comicCard .imgContainer,
+.containerCharacterDetails .containerComics .comicCard .imgContainer {
+  margin-bottom: 10px;
+}
+.containerComicDetails .containerComics .comicCard .imgContainer .cardImg,
+.containerCharacterDetails .containerComics .comicCard .imgContainer .cardImg {
+  height: 100%;
+  width: 200px;
+  box-shadow: -1px 11px 19px 0px rgba(0, 0, 0, 0.31);
+  transform: translateY(0);
+  transition: 0.2s;
+}
+.containerComicDetails .containerComics .comicCard .comicTitle, .containerComicDetails .containerComics .comicCard .characterName,
+.containerCharacterDetails .containerComics .comicCard .comicTitle,
+.containerCharacterDetails .containerComics .comicCard .characterName {
+  font-size: 17px;
+  transition: 0.2s;
+}
+.containerComicDetails .containerComics .comicCard:focus .cardImg,
+.containerComicDetails .containerComics .comicCard:hover .cardImg,
+.containerCharacterDetails .containerComics .comicCard:focus .cardImg,
+.containerCharacterDetails .containerComics .comicCard:hover .cardImg {
+  transform: translateY(-10px);
+}
+.containerComicDetails .containerComics .comicCard:focus .comicTitle,
+.containerComicDetails .containerComics .comicCard:hover .comicTitle,
+.containerCharacterDetails .containerComics .comicCard:focus .comicTitle,
+.containerCharacterDetails .containerComics .comicCard:hover .comicTitle {
+  color: #ed1d23;
+}
 
 /*# sourceMappingURL=style.css.map */
