@@ -51,7 +51,7 @@ const loadComics = async () =>{
     containerPagination(Math.ceil(data.total/20));
 };
 
-// Cards de cada comic
+// Cards de cada personaje
 
 const loadCharacters = async () =>{
     const params = new URLSearchParams(window.location.search);
