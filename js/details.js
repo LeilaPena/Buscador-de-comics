@@ -87,4 +87,10 @@ const loadComic = async () => {
 
     })
 }
-loadComic()
+
+
+const initialize = () => {
+    loadComic()   
+   };
+window.onload = initialize;
+
