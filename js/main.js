@@ -6,6 +6,7 @@ const contenedorPaginador = document.getElementById('contenedorPaginador');
 const contenedorOrdenPersonajes = document.getElementById('contenedorOrdenPersonajes');
 const contenedorOrdenComics = document.getElementById('contenedorOrdenComics');
 const selectTipo = document.getElementById('selectTipo');
+const loaderContainer = document.getElementById('loaderContainer');
 
 // Cards de cada comic
 
@@ -45,10 +46,11 @@ const loadComics = async () =>{
             params.set('comicId', comic.id);
 
             window.location.href = window.location.pathname + '/../views/details.html?' + params.toString(); 
-
+            
         });
     });
     containerPagination(Math.ceil(data.total/20));
+    hideLoader()
 };
 
 // Cards de cada personaje
@@ -93,6 +95,7 @@ const loadCharacters = async () =>{
         })
     })
     containerPagination(Math.ceil(data.total/20));
+    hideLoader()
 }
 
 // Input orden
@@ -140,6 +143,16 @@ const search = () =>{
         loadComics()
     }
 }
+
+//Loader
+
+const showLoader = () =>{
+    loaderContainer.style.display= 'flex';
+};
+
+const hideLoader = () =>{
+    loaderContainer.style.display= 'none';
+};
 
 const initialize = () => {
     search()    

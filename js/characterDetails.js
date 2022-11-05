@@ -3,7 +3,7 @@ const params = new URLSearchParams(window.location.search);
 const containerCharacterDetails = document.getElementById('containerCharacterDetails');
 
 const loadCharacter = async () => {
-
+    
     const response = await fetch(`https://gateway.marvel.com/v1/public/characters/${params.get('characterId')}?apikey=ad190a0fc63213c3f3f9c4f4e562d713`);
     const data = await response.json()
     const character = data.data.results[0];
@@ -68,4 +68,9 @@ const loadCharacter = async () => {
         cardImg.setAttribute("src" , `${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`) 
     })
 }
-loadCharacter()
+
+const initialize = () => {
+    loadCharacter()  
+   };
+window.onload = initialize;
+
