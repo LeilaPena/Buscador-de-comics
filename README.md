@@ -18,3 +18,13 @@ La página cuenta con diseño responsive.
  <br>
 
 ## Desarrollado por: Leila Peña y Magali Baez
+
+
+---
+
+## Corrección
+
+- Generaron una dependencia en fetchCharacters al utilizar variables de fetchComics. Si miran en las diferencias de la branch van a ver que les creé un settings donde las alojé.
+
+### Nota: 10 (Excelente).
+Muy buen trabajo, chicas.
